@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #bab2b2;
+    font-color: rgb(26, 25, 25);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #433c3c;
+    height: 70px;   
+}
+
+.logo {
+    flex-grow: 1;
+}
+
+.logo img {
+    width: 50px;
+    margin-left: 20px;
+}
+
+nav {
+    margin-right: 30px;
+}
+
+nav li {
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+nav li a {
+    text-decoration: none;
+    color: rgb(246, 235, 235);
+}
+
+.menu-icon {
+    display:none;
+    margin-right: 60px;
+}
+
+.company-name {
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 5%;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.pictures{
+    display:flex;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+}
+
+.description{
+    text-align: center;
+    font-size: 20px;
+    padding-top: 5px;
+    text-transform:uppercase;
+}
+
+.image{
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    height: 350px;
+    background-size: cover;
+}
+
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.image img{
+    object-fit: cover;
+    
+}
+
+
+.mode{
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+}
+
+.buttons-main{
+    display:flex;
+    justify-content: center;
+    padding: 2%;
+}
+.buttons{
+    border: dotted;
+    border-color:gray;
+    background-color:gray;
+    border-radius: 50%;
+    text-align:center;
+    padding: 3px;
+    width:30px;
+    height:30px;
+}
+
+
+@media (max-width: 600px) {
+    header {
+        position: relative;
+    }} 
+
+@media (max-width: 600px) {
+    header nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        background-color: #15304c;
+        width: 100%;}}
+
+ @media (min-width: 600px){
+            header nav {
+                display: block !important;       
+            }
+        }
+
+@media (max-width: 600px) {  
+     .menu-icon {
+            display: block;
+            color: white;
+            font-size: 23px;
+     } }
+
+.oficialPassword, .passwordRepeat, .nogood, .Thankyou, .nofilled {
+    display: none;
+    color: #db0000;
+    margin-top: 10px;
+    }
+        
+
+
+.Top-page{
+    display: none;
+    background-color: black;
+    padding: 10px 10px;
+    border-radius:25%;
+    color:aliceblue;
+    font-size:15px;
+    position:fixed;
+    right: 20px;
+    bottom:60px;
+}
+.password1, .password2{
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    outline: none;
+    color: white;
+    text-align: center;
+}
+
+.form {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form h1 {
+    color: rgb(16, 8, 8);
+    }
+
+form input[type="submit"] {
+    background-color: #db0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #433c3c;
+    color: rgb(246, 235, 235);
+    padding: 20px;
+    text-align: center;
+}
