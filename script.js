@@ -3,11 +3,11 @@ menuIcon.addEventListener ("click", () => {
     if (hamburgerIcon.classList[1] === "fa-bars") {
         hamburgerIcon.classList.add("fa-xmark")
         hamburgerIcon.classList.remove("fa-bars")
-        menuList.style.display = "block" 
+        menuList.classList.add('menu-visible')
     } else {
         hamburgerIcon.classList.add("fa-bars")
         hamburgerIcon.classList.remove("fa-xmark")
-        menuList.style.display = "none"
+         menuList.classList.remove('menu-hidden')
     }
 })
 
@@ -21,26 +21,26 @@ const image3 = document.querySelector(".image3")
 
 
 image1.addEventListener("mouseenter", () => {
- image1.style.transform = "scale(1.3)"})
-
-image1.addEventListener("mouseleave", () => {
- image1.style.transform = "scale(1)"
+    image1.classList.add('image-hover')
 })
 
+image1.addEventListener("mouseleave", () => {
+    image1.classList.remove('image-hover')
+})
 
 image2.addEventListener("mouseenter", () => {
-    image2.style.transform = "scale(1.3)"})
-   
-   image2.addEventListener("mouseleave", () => {
-    image2.style.transform = "scale(1)"
-   })
+    image2.classList.add('image-hover')
+})
+image2.addEventListener("mouseleave", () => {
+    image2.classList.remove('image-hover')
+})
 
 image3.addEventListener("mouseenter", () => {
-    image3.style.transform = "scale(1.3)"})
-    image3.addEventListener("mouseleave", () => {
-    image3.style.transform = "scale(1)"
-   })
-
+    image3.classList.add('image-hover')
+})
+image3.addEventListener("mouseleave", () => {
+    image3.classList.remove('image-hover')
+})
 
 //dark-light mode
 
@@ -54,27 +54,13 @@ const blackButon = document.querySelector (".buttons")
 
 
 blackButon.addEventListener("click", () => {
-    
     if (mode === 'svetly') {
         mode = "tmavy"
-        
-        body.style.backgroundColor = "black"
-        body.style.color = "#bab2b2";
-        header.style.backgroundColor = "black"
-        header.style.color = "#bab2b2"
-        Footer.style.backgroundColor = "black"
-        Footer.style.color = "#bab2b2"
-        blackButon.style.Color = "black"
-        Form.style.color = "white"
-
+        body.classList.add('dark-mode')
     } else {
-        mode = "svetly"
-        header.style.backgroundColor = "#433c3c"
-        body.style.backgroundColor = "#bab2b2"
-        body.style.color = "black"
-        Footer.style.backgroundColor ="#433c3c"
+        mode = "svetly" 
+        body.classList.remove('dark-mode')
     }
- 
 })
 
 
@@ -103,36 +89,37 @@ blackButon.addEventListener("click", () => {
     const nogood = document.querySelector(".nogood")
     const nofilled = document.querySelector(".nofilled")
    
-    formular.addEventListener("submit", (event) => {
-    event.preventDefault()
-
-
-    if (password1.value === "") {
-        notPassword1.style.display = "block"}
-    else {
-        notPassword1.style.display = "none"}
-        
-
-    if (password2.value === "") {
-         notPassword2.style.display = "block"}
-    else {
-            notPassword2.style.display = "none"}
-
-    if (password1.value != password2.value && password1.value != "" && password2.value != "") {
-        nogood.style.display = "block"}
-    else {
-            nogood.style.display = "none"}
-
-    if (password1.value === password2.value) {
-            Thankyou.style.display = "block"}
-            else {
-                Thankyou.style.display = "none"}
-            
-    if (password1.value === "" && password2.value === "") {
-            nofilled.style.display = "block"} 
-     else {
-                nofilled.style.display = "none"}
-
-    })
+    password1.addEventListener("input", checkPasswords)
+    password2.addEventListener("input", checkPasswords)
+    
+    function checkPasswords() {
+// Kontrola prázdných polí
+        if (password1.value === "") {
+            notPassword1.style.display = "block"
+        } else {
+            notPassword1.style.display = "none"
+        }
+    
+        if (password2.value === "") {
+            notPassword2.style.display = "block"
+        } else {
+            notPassword2.style.display = "none"
+        }
+    
+// Kontrola shody hesel
+        if (password1.value !== password2.value && password1.value !== "" && password2.value !== "") {
+            nogood.style.display = "block"
+            Thankyou.style.display = "none"
+        } else if (password1.value === password2.value && password1.value !== "" && password2.value !== "") {
+            nogood.style.display = "none"
+            Thankyou.style.display = "block"
+        }
+    
+// Kontrola zda jsou obě pole prázdná
+        if (password1.value === "" && password2.value === "") {
+            nofilled.style.display = "block"
+        } else {
+            nofilled.style.display = "none"}
+        }
 
 
